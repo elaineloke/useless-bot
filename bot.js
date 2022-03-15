@@ -5,6 +5,13 @@ function answerQuery(query) {
   return "Sorry Dave, I cannot do that."
 }
 
+function answerQueryfb(query) {
+  query = query.toLowerCase();
+  if (query.indexOf("football") != -1 || query.indexOf("ball") != -1 || query.indexOf("game") != -1)
+    return "You seem to love football. Tell me more about it.";
+  return "I only know about football."
+}
+
 
 function handleSayClick() {
   // We first get the 'message' that the user entered and 'conversation' element
@@ -16,6 +23,10 @@ function handleSayClick() {
   var answer = answerQuery(message)
   conversation.innerHTML += "<p><strong>You:</strong> " + message + "</p>";
   conversation.innerHTML += "<p><strong>Useless bot:</strong> " + answer + "</p>";
+
+  var answerfb = answerQueryfb(message)
+  conversation.innerHTML += "<p><strong>You:</strong> " + message + "</p>";
+  conversation.innerHTML += "<p><strong>Useless bot:</strong> " + answerfb + "</p>";
 }
 
 
